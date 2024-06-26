@@ -1,0 +1,115 @@
+<mxfile modified="2024-06-24T21:41:18.627Z" host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="oKS2vOKFTTVFWsS54iYT" version="24.6.2" type="github">
+  <diagram id="Ht1M8jgEwFfnCIfOTk4-" name="Page-1">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- AWS Cloud Group -->
+        <mxCell id="AWSCloud" value="AWS Cloud" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#232F3E;dashed=0;labelBackgroundColor=#ffffff;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;" parent="1" vertex="1">
+          <mxGeometry x="50" y="80" width="1080" height="700" as="geometry" />
+        </mxCell>
+        
+        <!-- VPC WEST -->
+        <mxCell id="VPCWest" value="VPC WEST" style="strokeColor=#00BFFF;fillColor=none;container=1;" parent="AWSCloud" vertex="1">
+          <mxGeometry x="60" y="100" width="450" height="600" as="geometry" />
+        </mxCell>
+        
+        <!-- VPC EAST -->
+        <mxCell id="VPCEast" value="VPC EAST" style="strokeColor=#00BFFF;fillColor=none;container=1;" parent="AWSCloud" vertex="1">
+          <mxGeometry x="600" y="100" width="450" height="600" as="geometry" />
+        </mxCell>
+
+        <!-- Availability Zone 1b in VPC WEST -->
+        <mxCell id="AZ1b" value="Availability Zone 1b" style="strokeColor=#228B22;fillColor=none;container=1;" parent="VPCWest" vertex="1">
+          <mxGeometry x="10" y="50" width="200" height="500" as="geometry" />
+        </mxCell>
+
+        <!-- Availability Zone 1a in VPC WEST -->
+        <mxCell id="AZ1aWest" value="Availability Zone 1a" style="strokeColor=#228B22;fillColor=none;container=1;" parent="VPCWest" vertex="1">
+          <mxGeometry x="240" y="50" width="200" height="500" as="geometry" />
+        </mxCell>
+
+        <!-- Availability Zone 1a in VPC EAST -->
+        <mxCell id="AZ1aEast" value="Availability Zone 1a" style="strokeColor=#228B22;fillColor=none;container=1;" parent="VPCEast" vertex="1">
+          <mxGeometry x="10" y="50" width="400" height="500" as="geometry" />
+        </mxCell>
+        
+        <!-- EC2 Instances in AZ 1b WEST -->
+        <mxCell id="ProdHA" value="Prod HA" style="shape=mxgraph.aws4.compute_amazon_ec2_instance;fillColor=#FF9900;" parent="AZ1b" vertex="1">
+          <mxGeometry x="10" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Dev" value="Dev" style="shape=mxgraph.aws4.compute_amazon_ec2_instance;fillColor=#FF9900;" parent="AZ1b" vertex="1">
+          <mxGeometry x="70" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Test" value="Test" style="shape=mxgraph.aws4.compute_amazon_ec2_instance;fillColor=#FF9900;" parent="AZ1b" vertex="1">
+          <mxGeometry x="130" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Dcon" value="D con" style="shape=mxgraph.aws4.compute_amazon_ec2_instance;fillColor=#FF9900;" parent="AZ1b" vertex="1">
+          <mxGeometry x="190" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Internet Gateway -->
+        <mxCell id="IGWWest" value="Internet Gateway" style="shape=mxgraph.aws4.networking_content_delivery_internet_gateway;fillColor=#FFFFFF;" parent="AZ1aWest" vertex="1">
+          <mxGeometry x="30" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XferHub" value="Xfer Hub" style="shape=mxgraph.aws4.storage_transfer;fillColor=#FFFFFF;" parent="AZ1aWest" vertex="1">
+          <mxGeometry x="90" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="VPNRouterWest" value="VPN Router" style="shape=mxgraph.aws4.networking_content_delivery_vpn_gateway;fillColor=#FFFFFF;" parent="AZ1aWest" vertex="1">
+          <mxGeometry x="150" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Prod" value="Prod" style="shape=mxgraph.aws4.compute_amazon_ec2_instance;fillColor=#FF9900;" parent="AZ1aWest" vertex="1">
+          <mxGeometry x="210" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- VPN Router in AZ 1a EAST -->
+        <mxCell id="VPNRouterEast" value="VPN Router" style="shape=mxgraph.aws4.networking_content_delivery_vpn_gateway;fillColor=#FFFFFF;" parent="AZ1aEast" vertex="1">
+          <mxGeometry x="30" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ProdDR" value="Prod DR" style="shape=mxgraph.aws4.compute_amazon_ec2_instance;fillColor=#FF9900;" parent="AZ1aEast" vertex="1">
+          <mxGeometry x="90" y="20" width="50" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections -->
+        <mxCell id="edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;" parent="1" source="VPNRouterWest" target="VPNRouterEast" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;" parent="1" source="IGWWest" target="VPNRouterWest" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;" parent="1" source="IGWWest" target="VPNRouterEast" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <!-- SubPower -->
+        <mxCell id="SubPower" value="SubPower" style="shape=mxgraph.aws4.compute_amazon_ec2_instance;fillColor=#FF9900;" parent="1" vertex="1">
+          <mxGeometry x="320" y="700" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IDS" value="IDS" style="shape=mxgraph.aws4.compute_amazon_ec2_instance;fillColor=#FF9900;" parent="1" vertex="1">
+          <mxGeometry x="400" y="700" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="GenpactMain" value="Genpact (Main)" style="shape=mxgraph.aws4.compute_amazon_ec2_instance;fillColor=#FF9900;" parent="1" vertex="1">
+          <mxGeometry x="480" y="700" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="GenpactBackup" value="Genpact (Backup)" style="shape=mxgraph.aws4.compute_amazon_ec2_instance;fillColor=#FF9900;" parent="1" vertex="1">
+          <mxGeometry x="560" y="700" width="50" height="50" as="geometry" />
+        </mxCell>
+        
+        <!-- Connections to VPN -->
+        <mxCell id="edge4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;" parent="1" source="VPNRouterWest" target="SubPower" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;" parent="1" source="VPNRouterWest" target="IDS" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;" parent="1" source="VPNRouterEast" target="GenpactMain" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=1;" parent="1" source="VPNRouterEast" target="GenpactBackup" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
